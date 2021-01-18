@@ -1,13 +1,15 @@
 import Home from '../components/Home'
-import {connect} from 'react-redux'
-import {addToCart} from '../service/actions/actions'
+import { connect } from 'react-redux'
+import { addTodo, removeTodos } from '../service/actions/actions'
 
-const mapStateToProps=state=>({
-    // data:state.cardItems
+const mapStateToProps = state => ({
+    datas: state.cardItems
 })
-const mapDispatchToProps=dispatch=>({
-    addToCartHandler:data=>dispatch(addToCart(data))
+const mapDispatchToProps = dispatch => ({
+    AddTodosHome: data => dispatch(addTodo(data)),
+    RemoveTodoHome: data => dispatch(removeTodos(data))
+
 
 })
-export default connect(mapStateToProps,mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
 // export default Home;
